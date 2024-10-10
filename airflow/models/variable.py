@@ -154,6 +154,11 @@ class Variable(Base, LoggingMixin):
 
     @staticmethod
     @provide_session
+    def list(session: Session = None):
+        return session.query(Variable).all()
+
+    @staticmethod
+    @provide_session
     def set(
         key: str,
         value: Any,
